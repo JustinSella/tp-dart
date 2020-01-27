@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "allowJs": true,
+    "lib": [
+        "ES2016.Array.Include",
+        "ES2016",
+        "DOM"
+    ],
+    "outDir": "./build"
+  },
+  "exclude": [
+    "node_modules",
+    ".npm"
+  ]
+}

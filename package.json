@@ -1,0 +1,30 @@
+{
+  "name": "dart-game",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^13.5.0",
+    "expressjs": "^1.0.1",
+    "inquirer": "^7.0.4",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "rm -rf build/* && tsc --build tsconfig.json",
+    "cli": "npm run compile && node ./build/cli.js",
+    "web": "npm run compile && node ./build/app.js",
+    "start": "npm run cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JustinSella/tp-dart.git"
+  },
+  "author": "Justin Sella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustinSella/tp-dart/issues"
+  },
+  "homepage": "https://github.com/JustinSella/tp-dart#readme"
+}
