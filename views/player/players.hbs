@@ -1,0 +1,28 @@
+{{!< main}}
+
+{{!< main}}
+
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+
+    {{#players}}
+    <tr>
+        <td><a href="/games/{{this._id}}">{{this.name}}</a></td>
+        <td>{{this.email}}</td>
+        <td>
+            <form action="/games/{{this._id}}/players?_method=DELETE" method="POST">
+                <input type="text" name="playerId" id="playerId" value="{{this._id}}" hidden>
+                <input type="submit" value="Supprimer">
+            </form>
+        </td>
+    </tr>
+    {{/players}}
+    </tbody>
+</table>

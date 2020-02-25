@@ -1,0 +1,11 @@
+{{!< main}}
+
+<form action="{{#if edit}}/games/{{id}}?_method=PATCH{{else}}/games{{/if}}" method="POST">
+    <select name="mode" id="mode">
+        <option value="Around The World">Around The World</option>
+        <option value="301">301</option>
+        <option value="Cricket">Cricket</option>
+    </select>
+    <input type="text" name="name" id="name">
+    <input type="submit" value="créer">
+</form>

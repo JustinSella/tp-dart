@@ -91,8 +91,9 @@ async function promptShot(): Promise<Score> {
 
 async function init(): Promise<void> {
     var game = await start();
+    game.start();
 
-    while(!game.isEnded()) {
+    while(game.status === 'started' && game.currentPlayer !== undefined) {
         if (game.currentPlayer.hasWon) {
             game.nextPlayer();
             continue;

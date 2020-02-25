@@ -9,10 +9,14 @@ export class AroundTheWorld extends Gamemode
     }
 
     hasCurrentPlayerWon(): boolean {
+        if (this.status !== 'started' || this.currentPlayer === undefined) return false;
+
         return this.currentPlayer.score.length === 20;
     }    
     
     handleShot(score: Score): Score[] {
+        if (this.currentPlayer === undefined || this.status !== 'started') return [];
+
         let playerScore = this.currentPlayer.score;
 
         if ((playerScore.length < 1 && score.sector === 1) 
@@ -26,6 +30,8 @@ export class AroundTheWorld extends Gamemode
     }
 
     displayScores(): void {
+        if (this.currentPlayer === undefined || this.status !== 'started') console.log('La partie n\'a pas commencé.');
+
         let scores: {[id: string]: {}} = {};
         
         for (let p of this.players) {

@@ -19,10 +19,14 @@ export class TroisCentUn extends Gamemode
     }
 
     hasCurrentPlayerWon(): boolean {
+        if (this.currentPlayer === undefined || this.status !== 'started') return false;
+
         return this.getTotalScore(this.currentPlayer.score) === 0;
     }    
     
     handleShot(score: Score): Score[] {
+        if (this.currentPlayer === undefined || this.status !== 'started') return [];
+
         let playerScore = this.currentPlayer.score;
         let total = this.getTotalScore([...playerScore, score]);
     
@@ -36,6 +40,8 @@ export class TroisCentUn extends Gamemode
     }
 
     displayScores(): void {
+        if (this.currentPlayer === undefined || this.status !== 'started') console.log('La partie n\'a pas commencé');
+
         let scores: {[id: string]: {}} = {};
         
         for (let p of this.players) {

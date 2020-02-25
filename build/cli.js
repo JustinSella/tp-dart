@@ -98,7 +98,8 @@ function promptShot() {
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         var game = yield start();
-        while (!game.isEnded()) {
+        game.start();
+        while (game.status === 'started' && game.currentPlayer !== undefined) {
             if (game.currentPlayer.hasWon) {
                 game.nextPlayer();
                 continue;

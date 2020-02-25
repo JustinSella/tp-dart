@@ -13,10 +13,13 @@ class TroisCentUn extends gamemode_1.Gamemode {
         return total;
     }
     hasCurrentPlayerWon() {
-        console.log(this.currentPlayer.score);
+        if (this.currentPlayer === undefined || this.status !== 'started')
+            return false;
         return this.getTotalScore(this.currentPlayer.score) === 0;
     }
     handleShot(score) {
+        if (this.currentPlayer === undefined || this.status !== 'started')
+            return [];
         let playerScore = this.currentPlayer.score;
         let total = this.getTotalScore([...playerScore, score]);
         if ((total === 0 && score.multiplicator === 2) || total > 1)
@@ -26,6 +29,8 @@ class TroisCentUn extends gamemode_1.Gamemode {
         return this.currentPlayer.score;
     }
     displayScores() {
+        if (this.currentPlayer === undefined || this.status !== 'started')
+            console.log('La partie n\'a pas commencé');
         let scores = {};
         for (let p of this.players) {
             scores[p.username] = {

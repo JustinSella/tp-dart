@@ -1,0 +1,7 @@
+{{!< main}}
+
+<form action="{{#if edit}}/players/{{id}}?_method=PATCH{{else}}/games{{/if}}" method="POST">
+    <input type="text" name="name" id="name">
+    <input type="email" name="email" id="email">
+    <input type="submit" value="créer">
+</form>
